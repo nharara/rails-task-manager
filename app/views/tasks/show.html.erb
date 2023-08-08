@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card mt-3 justify-content-center shadow p-3" style="width: 25rem;">
+    <div class="card-body">
+    <h5 class="card-title"><%= @task['title'] %></h5>
+    <p class="card-text"><%= @task['details'] %></p>
+    <% if @task.completed? %>
+
+      <h6 class="card-subtitle mb-2 text-muted"><i class="fa-regular fa-square-check"></i> You've completed this.</h6>
+      <% else %>
+
+      <h6 class="card-subtitle mb-2 text-muted"><i class="fa-regular fa-square"></i> You've not completed this yet.</h6>
+      <% end %>
+
+    <p>
+      <%= link_to "⬅ Back to List", tasks_path %>
+      <%= link_to "✐ Edit Task", edit_task_path %>
+      <%= link_to "🗑️ Delete Task", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "REallly?" } %>
+    </p>
+
+    </div>
+  </div>
+</div>

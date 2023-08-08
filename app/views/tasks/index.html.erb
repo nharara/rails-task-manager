@@ -1,0 +1,18 @@
+<div class="container mt-3">
+  <h1>Your Todo Lists</h1>
+
+<div class="cards">
+  <% @tasks.each do |task| %>
+    <h4>
+      <% if task.completed? %>
+      <i class="fa-regular fa-square-check"></i>
+      <% else %>
+      <i class="fa-regular fa-square"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+    </h4>
+  <% end %>
+  <%= link_to "+ Add to List", new_task_path%>
+</div>
+
+</div>
